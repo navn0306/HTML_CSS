@@ -57,6 +57,8 @@
         </div>
     </form>
     <script>
+
+        //Vaildate FirstName
         const text = document.querySelector('#text');
         const textError = document.querySelector('.text-error');
         text.addEventListener('input', function () {
@@ -66,6 +68,7 @@
             else textError.textContent = "Name is Incorrect";
         });
 
+        //Validate Email
         const email = document.querySelector("#email");
         const emailError = document.querySelector(".email-error");
         email.addEventListener('input', function () {
@@ -74,6 +77,18 @@
                 emailError.textContent = "";
             } else {
                 emailError.textContent = "Email id is incorrect";
+            }
+        });
+
+        //Validate Telephone
+        const tel = document.querySelector("#tel");
+        const telError = document.querySelector(".tel-error");
+        tel.addEventListener('input', function () {
+            let telRegex = RegExp('^[1-9]{2}( )[0-9]{10}$');
+            if (telRegex.test(tel.value)) {
+                telError.textContent = "";
+            } else {
+                telError.textContent = "Telephone is incorrect";
             }
         });
 
