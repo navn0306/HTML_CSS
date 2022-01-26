@@ -92,6 +92,18 @@
             }
         });
 
+        //Validate Password
+        const password = document.querySelector("#password");
+        const pwdError = document.querySelector(".pwd-error");
+        password.addEventListener('input', function () {
+            let PasswordRegex = RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!@#$%^&*():<>?]).{8,20}$');
+            if (PasswordRegex.test(password.value)) {
+                pwdError.textContent = "";
+            } else {
+                pwdError.textContent = "Password is incorrect";
+            }
+        });
+
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-error');
         output.textContent = salary.value;
